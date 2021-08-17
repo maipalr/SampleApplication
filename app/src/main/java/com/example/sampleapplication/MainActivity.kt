@@ -68,4 +68,10 @@ class MainActivity : AppCompatActivity() {
             startActivity(it)
         }
     }
+
+    fun launchListAction(view: View) {
+        Intent(this, ImageListingActivity::class.java).also {
+            startActivity(it)
+        }
+    }
 }

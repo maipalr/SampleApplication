@@ -67,4 +67,14 @@
         android:onClick="applyAction"
         app:layout_constraintEnd_toStartOf="@+id/guideline3"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName3" />
+
+    <Button
+        android:id="@+id/buttonList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:text="Images >"
+        android:onClick="launchListAction"
+        app:layout_constraintEnd_toEndOf="@+id/btnApply"
+        app:layout_constraintTop_toBottomOf="@+id/btnApply" />
 </androidx.constraintlayout.widget.ConstraintLayout>
