@@ -1,10 +1,11 @@
-package com.example.sampleapplication
+package com.example.sampleapplication.ImageList
 
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.sampleapplication.ImageList.Network.RetrofitInstance
 import com.example.sampleapplication.databinding.ActivityImageListingBinding
 import com.google.gson.Gson
 import retrofit2.HttpException
@@ -19,11 +20,8 @@ class ImageListingActivity : AppCompatActivity() {
         binding = ActivityImageListingBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        var itemList = mutableListOf(
-            Item( "First", ""),
-            Item("Second", "")
-        )
-        val adapter = ImageAdapter(imageList =itemList)
+        val photos : List<Photo> = listOf()
+        val adapter = ImageAdapter(imageList = photos)
         binding.rcView.adapter = adapter
         binding.rcView.layoutManager = LinearLayoutManager(this)
 
@@ -32,7 +30,7 @@ class ImageListingActivity : AppCompatActivity() {
                 val input = HashMap<String, String>()
                 input["method"] = "flickr.photos.getRecent" //"flickr.photos.search"
                 input["api_key"] = "062a6c0c49e4de1d78497d13a7dbb360"
-               // input["tags"] = "car"
+                input["tags"] = "car"
                 input["format"] = "json"
                 input["nojsoncallback"] = "1"
                 input["per_page"] = "10"
@@ -47,13 +45,15 @@ class ImageListingActivity : AppCompatActivity() {
                 print("success")
                 print(response.code().toString())
                 Log.i("TAG", response.code().toString())
-                Log.w("TAG", Gson().toJson(response))
+                adapter.imageList = response.body()?.photos?.photo ?: photos
             }else{
                 print("fail")
                 print(response.code().toString())
                 Log.i("TAG", response.code().toString())
+                adapter.imageList = photos
             }
-
+            //update your UI
+            adapter.notifyDataSetChanged()
         }
     }
 }

@@ -1,4 +1,4 @@
-package com.example.sampleapplication
+package com.example.sampleapplication.Profile
 
 import java.io.Serializable
 

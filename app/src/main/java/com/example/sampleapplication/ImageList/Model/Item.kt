@@ -1,4 +1,4 @@
-package com.example.sampleapplication
+package com.example.sampleapplication.ImageList.Model
 
 data class Item (
     var title: String,

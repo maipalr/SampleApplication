@@ -1,12 +1,12 @@
 package com.example.sampleapplication
 
-import android.app.Activity
-import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
+import com.example.sampleapplication.Profile.FirstFragment
+import com.example.sampleapplication.Profile.Person
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 private const val ARG_OBJECT = "object"

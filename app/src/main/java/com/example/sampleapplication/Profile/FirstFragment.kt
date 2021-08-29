@@ -1,4 +1,4 @@
-package com.example.sampleapplication
+package com.example.sampleapplication.Profile
 
 import android.content.Context
 import android.graphics.Color
@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import com.example.sampleapplication.R
 import com.google.android.material.tabs.TabLayout
 
 // TODO: Rename parameter arguments, choose names that match

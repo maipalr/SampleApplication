@@ -1,8 +1,8 @@
-package com.example.sampleapplication
+package com.example.sampleapplication.ImageList.Network
 
+import com.example.sampleapplication.ImageList.ImageData
 import retrofit2.Response
 import retrofit2.http.GET
-import retrofit2.http.Query
 import retrofit2.http.QueryMap
 
 interface ImageListApi {
