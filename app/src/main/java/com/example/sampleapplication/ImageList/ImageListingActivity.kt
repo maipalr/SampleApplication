@@ -3,11 +3,15 @@ package com.example.sampleapplication.ImageList
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView.Orientation
 import com.example.sampleapplication.ImageList.Network.RetrofitInstance
+import com.example.sampleapplication.R
 import com.example.sampleapplication.databinding.ActivityImageListingBinding
-import com.google.gson.Gson
 import retrofit2.HttpException
 import java.io.IOException
 
@@ -19,6 +23,8 @@ class ImageListingActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityImageListingBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        binding.rcView.addItemDecoration(DividerItemDecoration(this, LinearLayoutManager.VERTICAL))
 
         val photos : List<Photo> = listOf()
         val adapter = ImageAdapter(imageList = photos)
