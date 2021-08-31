@@ -2,10 +2,11 @@ package com.example.sampleapplication.ImageList
 
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
 import android.view.View
 import android.widget.AbsListView
-import android.widget.SearchView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.SearchView
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
@@ -15,6 +16,7 @@ import com.example.sampleapplication.ImageList.Util.Constants.Companion.QUERY_PA
 import com.example.sampleapplication.ImageList.Util.Constants.Companion.SEARCH_DELAY_INTERVAL
 import com.example.sampleapplication.ImageList.Util.Resource
 import com.example.sampleapplication.ImageList.repository.PhtosRepository
+import com.example.sampleapplication.R
 import com.example.sampleapplication.databinding.ActivityImageListingBinding
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.MainScope
@@ -33,7 +35,6 @@ class ImageListingActivity : AppCompatActivity() {
         binding = ActivityImageListingBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setupRecyclerView()
-        setupSearchView()
         setupViewModelRepository()
     }
 
@@ -55,9 +56,9 @@ class ImageListingActivity : AppCompatActivity() {
         binding.rcView.addOnScrollListener(this@ImageListingActivity.scrollListener)
     }
 
-    private fun setupSearchView(){
+    private fun setupSearchView(searchView: SearchView){
         var job: Job? = null
-        binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+       searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
 
             override fun onQueryTextChange(newText: String): Boolean {
                 callSearch(newText)
@@ -142,5 +143,15 @@ class ImageListingActivity : AppCompatActivity() {
                 isScrolling = false
             }
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.search_menu, menu)
+        val search = menu?.findItem(R.id.searchView)
+        val searchView = search?.actionView as? SearchView
+        searchView?.let {
+            setupSearchView(it)
+        }
+        return true
     }
 }
