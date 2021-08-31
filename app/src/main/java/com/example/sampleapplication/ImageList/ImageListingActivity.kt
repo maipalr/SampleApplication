@@ -61,12 +61,12 @@ class ImageListingActivity : AppCompatActivity() {
 
             override fun onQueryTextChange(newText: String): Boolean {
                 callSearch(newText)
-                return true
+                return false
             }
 
             override fun onQueryTextSubmit(query: String): Boolean {
                 callSearch(query)
-                return true
+                return false
             }
 
             fun callSearch(query: String) {
@@ -74,6 +74,8 @@ class ImageListingActivity : AppCompatActivity() {
                 job = MainScope().launch {
                     delay(SEARCH_DELAY_INTERVAL)
                     if (query.isNotEmpty()){
+                        binding.rcView.setPadding(0,0,0,50)
+                        isLastPage = false
                         viewModel.getImages(query)
                     }
                 }
@@ -91,9 +93,11 @@ class ImageListingActivity : AppCompatActivity() {
                     hideProgressBar()
                     response.data?.let {
                         imgAdapter.differ.submitList(it.photos.photo.toList())
-                        isLastPage = viewModel.pageNumber == (viewModel.imagesResponse?.photos?.pages ?: 0)
+                        //TO DO: remove hardcoded 3
+                        isLastPage = viewModel.pageNumber > 3//(viewModel.imagesResponse?.photos?.pages ?: 0)
                         if (isLastPage){
                             binding.rcView.setPadding(0,0,0,0)
+                            binding.rcView.requestLayout()
                         }
                     }
                 }
