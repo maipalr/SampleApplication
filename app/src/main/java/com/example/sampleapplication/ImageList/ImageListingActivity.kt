@@ -2,6 +2,7 @@ package com.example.sampleapplication.ImageList
 
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -53,11 +54,11 @@ class ImageListingActivity : AppCompatActivity() {
     }
 
     private fun hideProgressBar(){
-
+        binding.paginationProgressBar.visibility = View.INVISIBLE
     }
 
     private fun showProgressBar(){
-
+        binding.paginationProgressBar.visibility = View.VISIBLE
     }
 
     private fun setupRecyclerView(){
