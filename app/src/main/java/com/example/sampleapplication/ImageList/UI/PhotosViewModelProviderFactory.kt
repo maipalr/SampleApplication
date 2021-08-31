@@ -1,4 +1,4 @@
-package com.example.sampleapplication.ImageList
+package com.example.sampleapplication.ImageList.UI
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider

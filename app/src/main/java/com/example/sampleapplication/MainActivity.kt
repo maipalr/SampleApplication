@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.sampleapplication.ImageList.ImageListingActivity
+import com.example.sampleapplication.ImageList.UI.ImageListingActivity
 import com.example.sampleapplication.Profile.Person
 import com.example.sampleapplication.databinding.ActivityMainBinding
 

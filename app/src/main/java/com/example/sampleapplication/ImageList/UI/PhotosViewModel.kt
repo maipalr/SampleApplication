@@ -1,12 +1,12 @@
-package com.example.sampleapplication.ImageList
+package com.example.sampleapplication.ImageList.UI
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.sampleapplication.ImageList.ImageData
 import com.example.sampleapplication.ImageList.Util.Resource
 import com.example.sampleapplication.ImageList.repository.PhtosRepository
 import kotlinx.coroutines.launch
-import okhttp3.internal.readFieldOrNull
 import retrofit2.Response
 
 class PhotosViewModel(

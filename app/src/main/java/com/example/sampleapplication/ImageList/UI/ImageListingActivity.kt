@@ -1,4 +1,4 @@
-package com.example.sampleapplication.ImageList
+package com.example.sampleapplication.ImageList.UI
 
 import android.os.Bundle
 import android.util.Log
@@ -12,6 +12,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.sampleapplication.ImageList.Adapter.ImageAdapter
 import com.example.sampleapplication.ImageList.Util.Constants.Companion.QUERY_PAGE_SIZE
 import com.example.sampleapplication.ImageList.Util.Constants.Companion.SEARCH_DELAY_INTERVAL
 import com.example.sampleapplication.ImageList.Util.Resource
