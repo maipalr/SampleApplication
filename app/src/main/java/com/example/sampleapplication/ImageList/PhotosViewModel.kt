@@ -6,6 +6,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.sampleapplication.ImageList.Util.Resource
 import com.example.sampleapplication.ImageList.repository.PhtosRepository
 import kotlinx.coroutines.launch
+import okhttp3.internal.readFieldOrNull
 import retrofit2.Response
 
 class PhotosViewModel(
@@ -13,6 +14,7 @@ class PhotosViewModel(
 ): ViewModel() {
     val images: MutableLiveData<Resource<ImageData>> = MutableLiveData()
     var pageNumber: Int = 1
+    var searchQuery: String = ""
     var imagesResponse: ImageData? = null
 
     init {
@@ -20,6 +22,14 @@ class PhotosViewModel(
     }
 
     fun getImages(searchQuery: String) = viewModelScope.launch {
+        pageNumber = 1
+        imagesResponse = null
+        this@PhotosViewModel.searchQuery = searchQuery
+        images.postValue(null)
+        getMoreImages()
+    }
+
+    fun getMoreImages() = viewModelScope.launch {
         images.postValue(Resource.Loading())
         val response = phtosRepository.getImages(searchQuery,pageNumber)
         images.postValue(handleImagesResponse(response))

@@ -27,7 +27,6 @@ class ImageListingActivity : AppCompatActivity() {
     lateinit var viewModel: PhotosViewModel
     lateinit var imgAdapter: ImageAdapter
     val TAG = "ImageListingActivity"
-    var searchQuery: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -75,7 +74,6 @@ class ImageListingActivity : AppCompatActivity() {
                 job = MainScope().launch {
                     delay(SEARCH_DELAY_INTERVAL)
                     if (query.isNotEmpty()){
-                        searchQuery = query
                         viewModel.getImages(query)
                     }
                 }
@@ -136,7 +134,7 @@ class ImageListingActivity : AppCompatActivity() {
             val isTotalMoreThanVisible = totalItemCount >= QUERY_PAGE_SIZE
             val shouldPaginate = isNotLoadingAndNotLastPage && isAtLastItem && isNotAtBeginning && isTotalMoreThanVisible && isScrolling
             if (shouldPaginate){
-                viewModel.getImages(searchQuery ?: "")
+                viewModel.getMoreImages()
                 isScrolling = false
             }
         }
