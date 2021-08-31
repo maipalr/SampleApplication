@@ -5,9 +5,12 @@ import com.example.sampleapplication.ImageList.Network.RetrofitInstance
 import com.example.sampleapplication.ImageList.Util.Constants.Companion.API_KEY
 import com.example.sampleapplication.ImageList.Util.Constants.Companion.BASE_URL
 import com.example.sampleapplication.ImageList.Util.Constants.Companion.QUERY_PAGE_SIZE
+import com.example.sampleapplication.ImageList.db.PhotoDatabase
 import retrofit2.Response
 
-class PhtosRepository {
+class PhtosRepository(
+    val db: PhotoDatabase
+    ){
     suspend fun getImages(searchQuery: String, pageNumber: Int): Response<ImageData> {
         val input = HashMap<String, String>()
         input["method"] = BASE_URL

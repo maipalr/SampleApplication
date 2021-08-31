@@ -16,13 +16,11 @@ import com.example.sampleapplication.ImageList.Adapter.ImageAdapter
 import com.example.sampleapplication.ImageList.Util.Constants.Companion.QUERY_PAGE_SIZE
 import com.example.sampleapplication.ImageList.Util.Constants.Companion.SEARCH_DELAY_INTERVAL
 import com.example.sampleapplication.ImageList.Util.Resource
+import com.example.sampleapplication.ImageList.db.PhotoDatabase
 import com.example.sampleapplication.ImageList.repository.PhtosRepository
 import com.example.sampleapplication.R
 import com.example.sampleapplication.databinding.ActivityImageListingBinding
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.MainScope
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
 
 
 class ImageListingActivity : AppCompatActivity() {
@@ -86,7 +84,8 @@ class ImageListingActivity : AppCompatActivity() {
     }
 
     private fun setupViewModelRepository(){
-        val  phtosRepository: PhtosRepository  = PhtosRepository()
+        val db:PhotoDatabase = PhotoDatabase(this)
+        val  phtosRepository: PhtosRepository  = PhtosRepository(db)
         val viewModelProviderFactory = PhotosViewModelProviderFactory(phtosRepository)
         viewModel = ViewModelProvider(this, viewModelProviderFactory).get(PhotosViewModel::class.java)
         viewModel.images.observe(this, Observer { response ->
@@ -95,7 +94,7 @@ class ImageListingActivity : AppCompatActivity() {
                     hideProgressBar()
                     response.data?.let {
                         imgAdapter.differ.submitList(it.photos.photo.toList())
-                        //TO DO: remove hardcoded 3
+                        //TODO: remove hardcoded 3
                         isLastPage = viewModel.pageNumber > 3//(viewModel.imagesResponse?.photos?.pages ?: 0)
                         if (isLastPage){
                             binding.rcView.setPadding(0,0,0,0)
