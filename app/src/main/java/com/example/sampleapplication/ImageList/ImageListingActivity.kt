@@ -94,6 +94,9 @@ class ImageListingActivity : AppCompatActivity() {
                     response.data?.let {
                         imgAdapter.differ.submitList(it.photos.photo.toList())
                         isLastPage = viewModel.pageNumber == (viewModel.imagesResponse?.photos?.pages ?: 0)
+                        if (isLastPage){
+                            binding.rcView.setPadding(0,0,0,0)
+                        }
                     }
                 }
                 is Resource.Error -> {
