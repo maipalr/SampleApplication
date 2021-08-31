@@ -7,7 +7,8 @@ data class ImageData(
  )
 
 data class Photos(
-    val photo: List<Photo>
+    val photo: MutableList<Photo>,
+    val pages: Int
 )
 
 data class Photo(

@@ -13,6 +13,7 @@ class PhotosViewModel(
 ): ViewModel() {
     val images: MutableLiveData<Resource<ImageData>> = MutableLiveData()
     var pageNumber: Int = 1
+    var imagesResponse: ImageData? = null
 
     init {
         getImages("")
@@ -27,7 +28,15 @@ class PhotosViewModel(
     private fun handleImagesResponse(response: Response<ImageData>) : Resource<ImageData>{
         if (response.isSuccessful){
             response.body()?.let {
-                return Resource.Success(it)
+                pageNumber++
+                if (imagesResponse == null) {
+                    imagesResponse = it
+                }else{
+                    val  oldImages = imagesResponse?.photos?.photo
+                    val newImages = it.photos.photo
+                    oldImages?.addAll(newImages)
+                }
+                return Resource.Success(imagesResponse ?: it)
             }
         }
         return Resource.Error(response.message())
