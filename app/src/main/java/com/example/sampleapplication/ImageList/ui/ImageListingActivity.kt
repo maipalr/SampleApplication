@@ -1,4 +1,4 @@
-package com.example.sampleapplication.ImageList.UI
+package com.example.sampleapplication.ImageList.ui
 
 import android.os.Bundle
 import android.util.Log
@@ -12,7 +12,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.sampleapplication.ImageList.Adapter.ImageAdapter
+import com.example.sampleapplication.ImageList.adapter.ImageAdapter
 import com.example.sampleapplication.ImageList.Util.Constants.Companion.QUERY_PAGE_SIZE
 import com.example.sampleapplication.ImageList.Util.Constants.Companion.SEARCH_DELAY_INTERVAL
 import com.example.sampleapplication.ImageList.Util.Resource
@@ -84,8 +84,8 @@ class ImageListingActivity : AppCompatActivity() {
     }
 
     private fun setupViewModelRepository(){
-        val db:PhotoDatabase = PhotoDatabase(this)
-        val  phtosRepository: PhtosRepository  = PhtosRepository(db)
+        val db = PhotoDatabase(this)
+        val  phtosRepository  = PhtosRepository(db)
         val viewModelProviderFactory = PhotosViewModelProviderFactory(phtosRepository)
         viewModel = ViewModelProvider(this, viewModelProviderFactory).get(PhotosViewModel::class.java)
         viewModel.images.observe(this, Observer { response ->

@@ -1,4 +1,4 @@
-package com.example.sampleapplication.ImageList.Adapter
+package com.example.sampleapplication.ImageList.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -12,7 +12,7 @@ import com.bumptech.glide.Glide
 import com.example.sampleapplication.ImageList.Model.Photo
 import com.example.sampleapplication.R
 
-class ImageAdapter() : RecyclerView.Adapter<ImageAdapter.ImageItemHolder>() {
+class ImageAdapter : RecyclerView.Adapter<ImageAdapter.ImageItemHolder>() {
     inner class ImageItemHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
 
     private val differCallback = object : DiffUtil.ItemCallback<Photo>(){

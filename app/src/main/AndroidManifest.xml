@@ -11,8 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SampleApplication">
-        <activity android:name=".ImageList.UI.ImageListingActivity"></activity>
-        <activity android:name=".ViewPagerActivity" />
+        <activity android:name=".ImageList.ui.ImageListingActivity"></activity>
+        <activity android:name=".profile.ViewPagerActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

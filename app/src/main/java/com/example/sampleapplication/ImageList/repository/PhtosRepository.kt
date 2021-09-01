@@ -1,7 +1,7 @@
 package com.example.sampleapplication.ImageList.repository
 
 import com.example.sampleapplication.ImageList.ImageData
-import com.example.sampleapplication.ImageList.Network.RetrofitInstance
+import com.example.sampleapplication.ImageList.network.RetrofitInstance
 import com.example.sampleapplication.ImageList.Util.Constants.Companion.API_KEY
 import com.example.sampleapplication.ImageList.Util.Constants.Companion.BASE_URL
 import com.example.sampleapplication.ImageList.Util.Constants.Companion.QUERY_PAGE_SIZE

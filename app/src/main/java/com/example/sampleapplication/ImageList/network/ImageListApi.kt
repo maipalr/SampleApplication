@@ -1,4 +1,4 @@
-package com.example.sampleapplication.ImageList.Network
+package com.example.sampleapplication.ImageList.network
 
 import com.example.sampleapplication.ImageList.ImageData
 import retrofit2.Response

@@ -1,4 +1,4 @@
-package com.example.sampleapplication.ImageList.Network
+package com.example.sampleapplication.ImageList.network
 
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
