@@ -1,4 +1,4 @@
-package com.example.sampleapplication.ImageList.Model
+package com.example.sampleapplication.imageList.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

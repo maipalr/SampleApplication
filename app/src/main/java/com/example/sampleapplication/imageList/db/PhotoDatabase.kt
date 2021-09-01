@@ -1,12 +1,10 @@
-package com.example.sampleapplication.ImageList.db
+package com.example.sampleapplication.imageList.db
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room.databaseBuilder
 import androidx.room.RoomDatabase
-import com.example.sampleapplication.ImageList.Model.Photo
-import kotlinx.coroutines.InternalCoroutinesApi
-import kotlinx.coroutines.internal.synchronized
+import com.example.sampleapplication.imageList.model.Photo
 
 @Database(
     entities = [Photo::class],

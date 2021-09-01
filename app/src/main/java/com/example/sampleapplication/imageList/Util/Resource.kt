@@ -1,4 +1,4 @@
-package com.example.sampleapplication.ImageList.Util
+package com.example.sampleapplication.imageList.Util
 
 sealed class Resource<T> (
     val data: T? = null,

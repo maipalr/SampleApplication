@@ -1,8 +1,8 @@
-package com.example.sampleapplication.ImageList.db
+package com.example.sampleapplication.imageList.db
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
-import com.example.sampleapplication.ImageList.Model.Photo
+import com.example.sampleapplication.imageList.model.Photo
 
 @Dao
 interface PhotoDao {

@@ -1,11 +1,11 @@
-package com.example.sampleapplication.ImageList.ui
+package com.example.sampleapplication.imageList.ui
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.sampleapplication.ImageList.ImageData
-import com.example.sampleapplication.ImageList.Util.Resource
-import com.example.sampleapplication.ImageList.repository.PhtosRepository
+import com.example.sampleapplication.imageList.model.ImageData
+import com.example.sampleapplication.imageList.Util.Resource
+import com.example.sampleapplication.imageList.repository.PhtosRepository
 import kotlinx.coroutines.launch
 import retrofit2.Response
 
