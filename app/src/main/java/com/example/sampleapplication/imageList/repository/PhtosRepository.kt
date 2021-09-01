@@ -6,6 +6,7 @@ import com.example.sampleapplication.imageList.util.Constants.Companion.API_KEY
 import com.example.sampleapplication.imageList.util.Constants.Companion.BASE_URL
 import com.example.sampleapplication.imageList.util.Constants.Companion.QUERY_PAGE_SIZE
 import com.example.sampleapplication.imageList.db.PhotoDatabase
+import com.example.sampleapplication.imageList.model.Photo
 import retrofit2.Response
 
 class PhtosRepository(
@@ -22,4 +23,8 @@ class PhtosRepository(
         input["page"] =  pageNumber.toString()
         return RetrofitInstance.api.getImageList(input)
     }
+
+    suspend fun upsert(photo: Photo) = db.getPhotoDao().upsert(photo)
+    fun getSavedPhotos() = db.getPhotoDao().getAllPhotos()
+    suspend fun deletePhoto(photo: Photo) = db.getPhotoDao().deletePhoto(photo)
 }

@@ -2,12 +2,16 @@ package com.example.sampleapplication.imageList.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import androidx.appcompat.widget.ButtonBarLayout
 import com.bumptech.glide.Glide
+import com.example.sampleapplication.R
 import com.example.sampleapplication.databinding.ActivityPhotoPreviewBinding
 import com.example.sampleapplication.imageList.model.Photo
 
 class PhotoPreviewActivity : AppCompatActivity() {
     lateinit var photo: Photo
+    lateinit var viewModel: PhotosViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,4 +24,14 @@ class PhotoPreviewActivity : AppCompatActivity() {
             .centerCrop()
             .into(binding.imageView2)
       }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.preview_menu, menu)
+        val search = menu?.findItem(R.id.favButton)
+        val favButton = search?.actionView as? ButtonBarLayout
+        favButton?.setOnClickListener{
+            viewModel.savePhoto(photo)
+        }
+        return true
+    }
 }
