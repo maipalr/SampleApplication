@@ -46,7 +46,7 @@ class ImageAdapter : RecyclerView.Adapter<ImageAdapter.ImageItemHolder>() {
               textView.text = metaData.title
 
               val imgView = findViewById<ImageView>(R.id.imageView)
-              val url = "https://live.staticflickr.com/" + metaData.server + "/" + metaData.id + "_" + metaData.secret+"_m.jpg"
+              val url = "https://farm" + metaData.farm + ".staticflickr.com/" + metaData.server + "/" + metaData.id + "_" + metaData.secret+"_m.jpg"
               Glide.with(this)
                   .load(url)
                   .centerCrop()

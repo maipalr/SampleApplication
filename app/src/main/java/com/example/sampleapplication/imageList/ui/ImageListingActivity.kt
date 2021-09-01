@@ -1,10 +1,12 @@
 package com.example.sampleapplication.imageList.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.View
 import android.widget.AbsListView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.lifecycle.Observer
@@ -20,6 +22,8 @@ import com.example.sampleapplication.imageList.db.PhotoDatabase
 import com.example.sampleapplication.imageList.repository.PhtosRepository
 import com.example.sampleapplication.R
 import com.example.sampleapplication.databinding.ActivityImageListingBinding
+import com.example.sampleapplication.profile.Person
+import com.example.sampleapplication.profile.ViewPagerActivity
 import kotlinx.coroutines.*
 
 
@@ -35,6 +39,12 @@ class ImageListingActivity : AppCompatActivity() {
         setContentView(binding.root)
         setupRecyclerView()
         setupViewModelRepository()
+        imgAdapter.setOnItemClickListener { photo ->
+            Intent(this, PhotoPreviewActivity::class.java).also {
+                it.putExtra("Photo", photo)
+                startActivity(it)
+            }
+        }
     }
 
     private fun hideProgressBar(){
