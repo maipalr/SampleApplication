@@ -1,4 +1,4 @@
-package com.example.sampleapplication.imageList.Util
+package com.example.sampleapplication.imageList.util
 
 class Constants {
     companion object{

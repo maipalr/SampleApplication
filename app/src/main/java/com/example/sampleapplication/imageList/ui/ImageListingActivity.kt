@@ -13,9 +13,9 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.sampleapplication.imageList.adapter.ImageAdapter
-import com.example.sampleapplication.imageList.Util.Constants.Companion.QUERY_PAGE_SIZE
-import com.example.sampleapplication.imageList.Util.Constants.Companion.SEARCH_DELAY_INTERVAL
-import com.example.sampleapplication.imageList.Util.Resource
+import com.example.sampleapplication.imageList.util.Constants.Companion.QUERY_PAGE_SIZE
+import com.example.sampleapplication.imageList.util.Constants.Companion.SEARCH_DELAY_INTERVAL
+import com.example.sampleapplication.imageList.util.Resource
 import com.example.sampleapplication.imageList.db.PhotoDatabase
 import com.example.sampleapplication.imageList.repository.PhtosRepository
 import com.example.sampleapplication.R

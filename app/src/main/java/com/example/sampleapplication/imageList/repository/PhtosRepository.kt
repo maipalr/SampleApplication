@@ -2,9 +2,9 @@ package com.example.sampleapplication.imageList.repository
 
 import com.example.sampleapplication.imageList.model.ImageData
 import com.example.sampleapplication.imageList.network.RetrofitInstance
-import com.example.sampleapplication.imageList.Util.Constants.Companion.API_KEY
-import com.example.sampleapplication.imageList.Util.Constants.Companion.BASE_URL
-import com.example.sampleapplication.imageList.Util.Constants.Companion.QUERY_PAGE_SIZE
+import com.example.sampleapplication.imageList.util.Constants.Companion.API_KEY
+import com.example.sampleapplication.imageList.util.Constants.Companion.BASE_URL
+import com.example.sampleapplication.imageList.util.Constants.Companion.QUERY_PAGE_SIZE
 import com.example.sampleapplication.imageList.db.PhotoDatabase
 import retrofit2.Response
 
