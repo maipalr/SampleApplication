@@ -1,12 +1,11 @@
-package com.example.sampleapplication
+package com.example.sampleapplication.profile
 
-import android.app.Activity
-import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
+import com.example.sampleapplication.R
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 private const val ARG_OBJECT = "object"
@@ -30,30 +29,10 @@ class ViewPagerActivity : AppCompatActivity() {
         }.attach()
     }
 
-    override fun onStart() {
-        super.onStart()
-    }
-
-    override fun onResume() {
-        super.onResume()
-    }
-
-    override fun onStop() {
-        super.onStop()
-    }
-
-    override fun onRestart() {
-        super.onRestart()
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-    }
-
 }
 
 class DemoCollectionAdapter(fragment: ViewPagerActivity) : FragmentStateAdapter(fragment) {
-    val person = fragment.userInfo
+    private val person = fragment.userInfo
     override fun getItemCount(): Int = 2
 
     override fun createFragment(position: Int): Fragment {

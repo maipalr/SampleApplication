@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/images_nav_graph"
+    app:startDestination="@id/searchListFragment">
+
+    <fragment
+        android:id="@+id/searchListFragment"
+        android:name="com.example.sampleapplication.imageList.ui.fragments.SearchListFragment"
+        android:label="SearchListFragment" >
+        <action
+            android:id="@+id/action_searchListFragment_to_photoPreviewFragment"
+            app:destination="@id/photoPreviewFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/savedListFragment"
+        android:name="com.example.sampleapplication.imageList.ui.fragments.SavedListFragment"
+        android:label="fragment_saved_list"
+        tools:layout="@layout/fragment_saved_list" >
+        <action
+            android:id="@+id/action_savedListFragment_to_photoPreviewFragment"
+            app:destination="@id/photoPreviewFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/photoPreviewFragment"
+        android:name="com.example.sampleapplication.imageList.ui.fragments.PhotoPreviewFragment"
+        android:label="fragment_photo_preview"
+        tools:layout="@layout/fragment_photo_preview" >
+        <argument
+            android:name="photo"
+            app:argType="com.example.sampleapplication.imageList.model.Photo" />
+    </fragment>
+</navigation>
